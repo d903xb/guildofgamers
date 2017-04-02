@@ -3,23 +3,25 @@ package org.guildofgamers.repository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import javax.persistence.Id;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 
-/**
- * Created by smday on 01/04/2017.
- */
-
+@Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
-    @DBRef
+    @OneToMany
     private Collection<User> users;
 
 }

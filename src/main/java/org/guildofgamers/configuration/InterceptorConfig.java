@@ -16,7 +16,7 @@ public class InterceptorConfig {
 
     @Bean
     public MappedInterceptor myMappedInterceptor() {
-        return new MappedInterceptor(new String[]{"/users2/**"}, new HandlerInterceptor() {
+        return new MappedInterceptor(new String[]{"/users/**"}, new HandlerInterceptor() {
 
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
